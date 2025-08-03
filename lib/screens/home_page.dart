@@ -1,11 +1,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/models/item.dart';
 import 'package:news_app/widgets/category_list_view.dart';
+import 'package:news_app/widgets/news_list_View_builder.dart';
 import 'package:news_app/widgets/news_list_view.dart';
-import 'package:news_app/widgets/news_post.dart';
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -46,10 +44,13 @@ class HomePage extends StatelessWidget {
                 height: 10,
               ),
             ),
-            NewsListView(),
+           NewsListViewBuilder(
+           category: "",
+           ),
           ],
         )
       )
     );
   }
 }
+

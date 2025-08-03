@@ -7,31 +7,14 @@ import 'package:news_app/services/news_service.dart';
 
 import 'news_post.dart';
 
-class NewsListView extends StatefulWidget {
-  const NewsListView({super.key});
+class NewsListView extends StatelessWidget {
+  const NewsListView({super.key, required this.articles});
+  final List<ArticleModel>articles;
 
-  @override
-  State<NewsListView> createState() => _NewsListViewState();
-}
 
-class _NewsListViewState extends State<NewsListView> {
-  List<ArticleModel>articles = [];
-  bool isloading = true;
-  @override
-  void initState()  {
-    super.initState();
-     getGeneralNews();
-  }
-  Future<void> getGeneralNews() async {
-    articles= await NewsService(Dio()).getNews();
-     isloading = false;
-    setState(() {});
-  }
   @override
   Widget build(BuildContext context) {
-    NewsService(Dio()).getNews();
-    return isloading? SliverToBoxAdapter(
-        child: Center(child: CircularProgressIndicator())): SliverList(
+    return  SliverList(
           delegate: SliverChildBuilderDelegate(
                 childCount: articles.length,
                 (context,index){

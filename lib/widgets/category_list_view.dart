@@ -11,7 +11,7 @@ class CategoryListView  extends StatelessWidget {
         name: "Business"
     ),
     Item(image: "assets/entertaiment.avif",
-        name: "Entertaiment"
+        name: "Entertainment"
     ),
     Item(image: "assets/general.avif",
         name: "General"
